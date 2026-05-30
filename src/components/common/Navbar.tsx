@@ -60,26 +60,34 @@ export default function Navbar() {
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right">
+                <SheetContent side="right" className="px-8 pt-12">
                   <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
                   <SheetDescription className="sr-only">
                     Akses halaman utama KODWA TECH
                   </SheetDescription>
-                  <div className="flex flex-col space-y-4 pt-8">
+                  <div className="flex flex-col space-y-6">
                     {navLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-lg font-medium text-gray-700 hover:text-gray-900"
+                        className="text-xl font-semibold text-gray-800 hover:text-purple-600 transition-colors"
                       >
                         {link.label}
                       </Link>
                     ))}
-                    <Button asChild className="mt-4 w-full">
-                      <Link href="https://wa.me/6285924155519" target="_blank">
-                        Konsultasi Gratis
-                      </Link>
-                    </Button>
+                    <div className="pt-4">
+                      <Button
+                        asChild
+                        className="w-full py-6 text-lg font-bold bg-purple-600 hover:bg-purple-700"
+                      >
+                        <Link
+                          href="https://wa.me/6285924155519"
+                          target="_blank"
+                        >
+                          Konsultasi Gratis
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 </SheetContent>
               </Sheet>
