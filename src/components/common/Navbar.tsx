@@ -14,6 +14,7 @@ import {
 
 export default function Navbar() {
   const [isMounted, setIsMounted] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -54,7 +55,7 @@ export default function Navbar() {
           </div>
           {isMounted && (
             <div className="md:hidden flex items-center">
-              <Sheet>
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">
                     <Menu className="h-6 w-6" />
@@ -70,6 +71,7 @@ export default function Navbar() {
                       <Link
                         key={link.href}
                         href={link.href}
+                        onClick={() => setIsOpen(false)}
                         className="text-xl font-semibold text-gray-800 hover:text-purple-600 transition-colors"
                       >
                         {link.label}
@@ -79,6 +81,7 @@ export default function Navbar() {
                       <Button
                         asChild
                         className="w-full py-6 text-lg font-bold bg-purple-600 hover:bg-purple-700"
+                        onClick={() => setIsOpen(false)}
                       >
                         <Link
                           href="https://wa.me/6285924155519"
